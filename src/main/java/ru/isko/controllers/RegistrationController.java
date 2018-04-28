@@ -11,6 +11,7 @@ import ru.isko.forms.UserRegistrationForm;
 import ru.isko.models.User;
 import ru.isko.services.RegistrationService;
 import ru.isko.services.SystemService;
+import ru.isko.validators.UserRegistrationFormValidator;
 
 import javax.validation.Valid;
 
@@ -27,11 +28,14 @@ public class RegistrationController {
     private RegistrationService registrationService;
 
     @Autowired
+    private UserRegistrationFormValidator userRegistrationFormValidator;
+
+    @Autowired
     private SystemService service;
 
     @InitBinder("userForm")
     public void initUserFormValidator(WebDataBinder binder) {
-        binder.addValidators();
+        binder.addValidators(userRegistrationFormValidator);
     }
 
     @PostMapping(value = "/signup")

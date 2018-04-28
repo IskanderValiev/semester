@@ -108,7 +108,7 @@
             width: 200px;
             height: 50px;
             border-radius: 20px;
-            background-image: url('/static/images/background.png');
+            background-image: url('/images/background.png');
             color: #CCCC99;
             font-size: 18px;
             cursor: pointer;
@@ -123,6 +123,11 @@
             text-align: center;
         }
     </style>
+    <script>
+        function error() {
+            alert("Login or password is not correct.");
+        }
+    </script>
 </head>
 <body>
 <div class="conatiner">

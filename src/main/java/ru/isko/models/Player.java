@@ -36,6 +36,10 @@ public class Player {
     private String photo;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "player_club_id")
+    private Club club;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country.id")
     private Country country;
 }

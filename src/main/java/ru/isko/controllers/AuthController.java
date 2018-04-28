@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ru.isko.models.User;
 import ru.isko.repositories.users.UsersRepository;
+import ru.isko.security.role.Role;
 import ru.isko.services.AdminService;
 import ru.isko.services.AuthenticationService;
 import ru.isko.services.SystemService;
+import ru.isko.validators.UserAuthFormValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
@@ -29,6 +28,9 @@ public class AuthController {
 
     @Autowired
     private AuthenticationService authenticationService;
+
+    @Autowired
+    private UserAuthFormValidator userAuthFormValidator;
 
     @Autowired
     private UsersRepository usersRepository;
@@ -89,9 +91,4 @@ public class AuthController {
         }
         return "newpassword";
     }
-//
-//    @GetMapping(value = "/login")
-//    public String redirect() {
-//        return "redirect:/signin";
-//    }
 }
